@@ -1,8 +1,10 @@
 package com.company;
 
+import java.util.Arrays;
+
 public class Quadrilateral {
-    private Point[] points;
-    private Side[] sides;
+    private final Point[] points;
+    private final Side[] sides;
     private double[] angles = new double[4];
 
     public Quadrilateral(Point[] points, Side[] sides) {
@@ -55,8 +57,11 @@ public class Quadrilateral {
 
     @Override
     public String toString() {
-        return "Quadrilateral{\n- sides: [ " + sides[0].distance() + ", " + sides[1].distance() + ", " + sides[2].distance() + ", " + sides[3].distance() + ", "
-                + "]\n- angles: [ " + angles[0] + ", " + angles[1] + ", " + angles[2] + ", " + angles[3] + "]\n- perimeter: " + perimeter() +
+        return "Quadrilateral{" +
+                "\n- points: [" + Arrays.toString(points) +
+                "]\n- sides: [ " + sides[0].distance() + ", " + sides[1].distance() + ", " + sides[2].distance() + ", " + sides[3].distance() + ", "  +
+                "]\n- angles: [ " + angles[0] + ", " + angles[1] + ", " + angles[2] + ", " + angles[3] +
+                "]\n- perimeter: " + perimeter() +
                 "\n- area: " + area() +
                 '}';
     }}
