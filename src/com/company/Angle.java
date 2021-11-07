@@ -1,24 +1,17 @@
 package com.company;
 
-public class Angle {
-    private Side s1;
-    private Side s2;
-
-    public Angle(Side s1, Side s2) {
-        this.s1 = s1;
-        this.s2 = s2;
-    }
+public record Angle(Side s1, Side s2) {
 
     public double getDiameter() {
-        Side diameter = new Side( s1.getP1(), s2.getP2());
+        Side diameter = new Side(s1.getP1(), s2.getP2());
         return diameter.distance();
     }
 
     public double getAngle() {
-        double ab = Math.abs( Math.pow( s1.distance(), 2 ));
-        double ad = Math.abs( Math.pow( s2.distance(), 2 ));
-        double bd = Math.abs( Math.pow( getDiameter(), 2 ));
-        return Math.pow( Math.cos( (ab+ad-bd)/(2*ab*ad) ), -1);
+        double ab = Math.abs(Math.pow(s1.distance(), 2));
+        double ad = Math.abs(Math.pow(s2.distance(), 2));
+        double bd = Math.abs(Math.pow(getDiameter(), 2));
+        return Math.pow(Math.cos((ab + ad - bd) / (2 * ab * ad)), -1);
     }
 
     @Override
