@@ -39,9 +39,7 @@ public class Quadrilateral {
         double cd = sides[2].distance();
         double ad = sides[3].distance();
         Angle a1 = new Angle(sides[0], sides[3]);
-        System.out.println("a1 ==> "+a1.getAngle());
         Angle a2 = new Angle(sides[1], sides[2]);
-        System.out.println("a2 ==> "+a2.getAngle());
         return ((ab * ad * Math.sin(a1.getAngle()))/2) + ((bc * cd * Math.sin(a2.getAngle()) )/2) ;
     }
 
