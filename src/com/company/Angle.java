@@ -8,10 +8,11 @@ public record Angle(Side s1, Side s2) {
     }
 
     public double getAngle() {
-        double ab = Math.abs(Math.pow(s1.distance(), 2));
-        double ad = Math.abs(Math.pow(s2.distance(), 2));
-        double bd = Math.abs(Math.pow(getDiameter(), 2));
-        return Math.pow(Math.cos((ab + ad - bd) / (2 * ab * ad)), -1);
+        double ab = s1.distance();
+        double ad = s2.distance();
+        double bd = getDiameter();
+        double angle = Math.acos( ( Math.abs(Math.pow(ab,2)) + Math.abs(Math.pow(ad,2)) - Math.abs(Math.pow(bd,2)) ) / (2*ab*ad) );
+        return angle;
     }
 
     @Override
